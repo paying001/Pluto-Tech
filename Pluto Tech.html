@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluto Tech | Home of Hustle Tools</title>
+    <!-- Google Fonts for High-End Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --bg-main: #08090a;       /* Deep Obsidian Black */
+            --bg-card: #12141c;       /* Premium Dark Charcoal */
+            --gold-primary: #f3c63f;  /* Vibrant Metallic Gold */
+            --gold-gradient: linear-gradient(135deg, #ffe07d 0%, #b8860b 100%);
+            --text-main: #ffffff;     /* Crisp White */
+            --text-muted: #94a3b8;    /* Elegant Slate Gray */
+            --border-glow: rgba(243, 198, 63, 0.15);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background: rgba(8, 9, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-block img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%; /* Optional styling for logo */
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-gradient);
+            color: var(--bg-main);
+            box-shadow: 0 0 15px var(--border-glow);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 12rem 2rem 6rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(184, 134, 11, 0.08) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: var(--bg-main);
+            box-shadow: 0 4px 20px rgba(243, 198, 63, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(243, 198, 63, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- SERVICES (WHAT WE SELL) --- */
+        .services {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--gold-gradient);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(243, 198, 63, 0.05), transparent 50%);
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(243, 198, 63, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--border-glow);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- DISCOUNT / BANNER SECTION --- */
+        .discount-banner {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .banner-content {
+            background: linear-gradient(135deg, #12141c 0%, #1a1002 100%);
+            border: 1px solid rgba(243, 198, 63, 0.2);
+            padding: 3.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .badge {
+            background: rgba(243, 198, 63, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(243, 198, 63, 0.2);
+        }
+
+        .banner-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .banner-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--gold-primary);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .banner-content h2 {
+                font-size: 1.8rem;
+            }
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR CONTAINER -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-block">
+               
+                <span class="brand-name">Pluto Tech</span>
+            </div>
+            <a href="https://t.me/plutotech001" target="_blank" class="nav-cta">Contact Support</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Home of <span>Hustle Tools</span></h1>
+        <p>Selling all kind of hustlers tools at very cheap rate, join our telegram channel to see our updates.</p>
+        <div class="hero-buttons">
+            <a href="https://t.me/OnSaleOps" target="_blank" class="btn btn-primary">Join Telegram Channel</a>
+            <a href="https://t.me/plutotech001" target="_blank" class="btn btn-secondary">Message Admin to Buy</a>
+        </div>
+    </section>
+
+    <!-- WHAT WE SELL (SERVICES SECTION) -->
+    <section class="services">
+        <h2 class="section-title">What We Sell</h2>
+        <div class="grid">
+            
+            <!-- Tool 1 -->
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Foreign Numbers</h3>
+                <p>Premium, clean operational foreign numbers tailored to instantly register and verify any social media platform layout seamlessly.</p>
+            </div>
+
+            <!-- Tool 2 -->
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Social Media Boosting</h3>
+                <p>Accelerate your growth. High-retention optimization algorithms to pump visibility, reach, and engagement across major channels.</p>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="card">
+                <div class="card-icon">📂</div>
+                <h3>Premium Formats</h3>
+                <p>Exclusive scripts, operational blueprints, and conversion-optimized text structures ready to close premium digital deals.</p>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="card">
+                <div class="card-icon">🎬</div>
+                <h3>Tools for Editing</h3>
+                <p>Elite graphic asset bundles, video production plugins, and streamlined layout templates engineered for modern creators.</p>
+            </div>
+
+            <!-- Tool 5 -->
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Image to Video AI</h3>
+                <p>Dynamic automated pipelines built to process and animate static graphic renders into highly operational high-definition video assets.</p>
+            </div>
+
+            <!-- Tool 6 -->
+            <div class="card">
+                <div class="card-icon">📸</div>
+                <h3>Working Pictures</h3>
+                <p>High-converting, realistic stock environments and verification-optimized imagery designed to pass strict project layouts.</p>
+            </div>
+
+            <!-- Tool 7 (And more) -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>And A Lot More...</h3>
+                <p>Custom setup configurations, automation scripts, and hidden developer frameworks. If it secures the hustle, we stock it.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DISCOUNT & CALL TO ACTION BANNER -->
+    <section class="discount-banner">
+        <div class="banner-content">
+            <div class="badge">Limited Offer</div>
+            <h2>All items are very cheap here!</h2>
+            <p>Get instant access to premium tools without the heavy price tag. Tap into our operational distribution channel immediately.</p>
+            <div class="hero-buttons">
+                <a href="https://t.me/OnSaleOps" target="_blank" class="btn btn-primary">Join Telegram Channel</a>
+                <a href="https://t.me/plutotech001" target="_blank" class="btn btn-secondary">Message Admin Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span>Pluto Tech</span>. Built for elite execution. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
